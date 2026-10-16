@@ -1,50 +1,81 @@
 # LLM Wiki Kit
 
-A starter kit for a personal knowledge base that an LLM writes and you read. You collect the sources (articles, books, videos, your own notes). The agent compiles them into a linked markdown wiki, keeps the index current, checks its own health, and answers questions from it. You read it in Obsidian.
+A knowledge base that an AI writes and you read. You drop articles, book notes and transcripts into an inbox. Claude turns each one into a linked wiki page in Obsidian, keeps the index, checks its own work, and answers your questions from what it has written. You never write a wiki page yourself.
 
-Put together by Honzik, adapted from Andrej Karpathy's LLM wiki idea and from running two vaults this way since June 2026.
+Put together by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Version 0.2.0.
+
+## What you need
+
+| Install | What it is for | Cost | Get it |
+|---|---|---|---|
+| **Obsidian** | The reader. Shows a folder of markdown files as a linked notebook | Free | https://obsidian.md |
+| **Obsidian Web Clipper** | Browser extension. One click saves an article into your inbox | Free | https://obsidian.md/clipper |
+| **VS Code** | The editor Claude runs inside. You will not write code in it | Free | https://code.visualstudio.com |
+| **Claude Code extension** | Claude, with access to your vault folder and nothing else | Needs a paid Claude plan (Pro is enough) | Installed from inside VS Code, step 5 below |
+| **Git** | Keeps a history of every change Claude makes, so anything can be undone | Free | Mac: comes with the developer tools, see step 3. Windows: https://git-scm.com/download/win |
+| **GitHub Desktop** (optional) | Only if you got this kit from GitHub rather than a zip. Downloads it and pulls updates later | Free | https://desktop.github.com |
+| **Python 3** | Runs the health-check script | Free | Mac: already installed. Windows: https://python.org |
+
+Works on macOS 13 or later and Windows 10 (1809) or later.
+
+## Set up in seven steps
+
+About 45 minutes of installing, then 30 minutes of talking to Claude. The full version with every click is `docs/01 - Install.md`.
+
+**1. Get the kit.** Unzip the file you were sent. Or, in GitHub Desktop, File, Clone repository, paste this repo's address.
+
+**2. Install Obsidian and create a vault.** Open Obsidian, choose Create new vault, name it, put it in Documents. Quit Obsidian.
+
+**3. Install Git.** Mac: open Terminal, type `git --version`, accept the offer to install developer tools. Windows: run the Git installer with the defaults.
+
+**4. Copy the template into your vault.** Show hidden files (Mac: Cmd+Shift+. in Finder. Windows: View, Show, Hidden items). Copy everything inside the kit's `template/` folder, including the hidden `.claude` folder, into your vault folder. Open Obsidian: you should see Inbox, Archive, Private, Profile, Wiki.
+
+**5. Install VS Code and Claude Code.** Install VS Code. Open it, File, Open Folder, choose your vault. Press Cmd+Shift+X (Mac) or Ctrl+Shift+X (Windows), search Claude Code, Install. Open the Claude panel from the left bar, Sign in, finish in the browser.
+
+**6. Install the Web Clipper.** Add it to your browser. In its settings, choose your vault and set the note location to `Inbox/Clippings`.
+
+**7. Run the first two prompts.** In the Claude panel, paste the contents of `prompts/P0 - Bootstrap.md`. It checks the setup, asks your name and makes the first commit. Then paste `prompts/P1 - Setup Interview.md` and answer its questions. Fifteen minutes. It writes your profile and names your first topic areas.
+
+You are set up. Put three things in `Inbox/` and paste `prompts/P2 - First Ingest.md`.
+
+## How you use it from then on
+
+| When | Do |
+|---|---|
+| Any time | Clip an article, drop a file or a note into `Inbox/` |
+| Weekly, 20 minutes | Paste `prompts/P6 - Weekly Routine.md`. Claude processes the inbox, says what is ready to synthesise, suggests one question |
+| When you have a question | Paste `prompts/P5 - Ask the Wiki.md` with your question. File the good answers |
+| Monthly | Paste `prompts/P4 - Health Check.md`. Pick two or three fixes from the report |
+
+Three rules: sources go in the inbox and nowhere else, anything you do not want Claude to read goes in `Private/`, and read what Claude writes for the first few weeks.
 
 ## What is in the box
 
-| Path | What it is | Who uses it |
-|---|---|---|
-| `template/` | A complete, empty vault: folders, `CLAUDE.md`, the wiki rules, four wiki skills plus `wr-unslop` for de-AI editing, the meta pages | Copied once into a new Obsidian vault |
-| `prompts/` | Seven numbered prompts, pasted into Claude in order | The owner, on day one and then weekly |
-| `docs/` | Start here, the install guide, the weekly routine, troubleshooting | The owner |
-| `DESIGN.md` | Why the kit is shaped this way, what is adapted and what is original | Whoever maintains the kit |
-| `VERSION`, `CHANGELOG.md` | Which cut a vault was built from, and what changed since | Both |
+| Path | What it is |
+|---|---|
+| `template/` | The empty vault: folders, `CLAUDE.md` (the rules Claude follows), a style guide, the index and log pages, five skills |
+| `template/.claude/skills/` | `wiki-ingest`, `wiki-synthesise`, `wiki-lint` (with the health-check script), `wiki-query`, and `wr-unslop` for de-AI editing |
+| `prompts/` | P0 to P6, pasted in order |
+| `docs/` | `00 - Start Here`, `01 - Install`, `02 - The Weekly Routine`, `03 - Troubleshooting` |
+| `DESIGN.md`, `CHANGELOG.md`, `VERSION` | Why it is shaped this way, what changed, which version you have |
 
-## Quick start
+## How it works, in one paragraph
 
-1. Read `docs/00 - Start Here.md` (five minutes).
+Three layers. Sources: one faithful page per article, book or video, never edited after it is written. Knowledge: one page per concept, written only once three or more sources touch it, citing them with links and saying where they disagree. Living: plans, logs and decisions about your own life, built on the other two. One index page lists everything, so Claude navigates by reading it, with no search infrastructure. A log records every change. A monthly health check finds broken links, forgotten pages and ideas ready to be written up. `template/Wiki/_Meta/How This Wiki Works.md` is the long version.
 
-2. Install Obsidian, VS Code and Claude Code: `docs/01 - Install.md`.
+## If something goes wrong
 
-3. Create an empty Obsidian vault and copy everything inside `template/` into it, including the hidden `.claude/` folder.
-
-4. Open the vault in VS Code, open the Claude Code panel and paste `prompts/P0 - Bootstrap.md`. Then `P1 - Setup Interview.md`.
-
-5. Drop three things into `Inbox/` and paste `P2 - First Ingest.md`.
-
-From there the loop is: clip or drop sources into `Inbox/`, run the ingest, read what came out, ask questions, run the health check now and then. `docs/02 - The Weekly Routine.md` holds the 20 minute version.
+`docs/03 - Troubleshooting.md`. The three most common: the hidden `.claude` folder did not copy (Claude says it cannot find the skills), the Web Clipper is saving to the wrong folder, and a link in Obsidian goes nowhere (run the health check).
 
 ## Goes well with
 
-- [Learning Skills](https://github.com/J-Jurza/learning-skills): four skills that teach you a topic instead of answering for you. When they run inside a vault built from this kit, `explain` saves its explanations as Knowledge pages and `reading-pack` writes one page per concept, so what you learn lands in the wiki.
+- [Learning Skills](https://github.com/J-Jurza/learning-skills): four skills that teach you a topic instead of answering for you. Inside a vault built from this kit, what you learn is saved as wiki pages.
 
-- `wr-unslop`, included in the template: the de-AI editing pass from [theclaymethod/unslop](https://github.com/theclaymethod/unslop) (MIT), for anything the agent drafts that other people will read.
+- `wr-unslop`, included: the de-AI editing pass from [theclaymethod/unslop](https://github.com/theclaymethod/unslop) (MIT), for anything Claude drafts that other people will read.
 
-## The idea in one paragraph
+## Versions and updates
 
-The owner is the curator of sources and the reader of outputs. The agent is the author. Sources are kept faithfully and never edited after they land. Knowledge articles are written across sources, cite them with wikilinks, and say where sources disagree. One index page lists everything so the agent navigates by reading, with no search infrastructure. Every answer worth keeping is filed back in, so the wiki compounds. Health checks find broken links, orphans and drift before they rot the whole.
-
-## Versions
-
-A vault records the kit version it started from in its `CLAUDE.md` footer. To update a running vault, read `CHANGELOG.md` from that version forward and apply the entries that matter. Skills and `Wiki/CLAUDE.md` can be replaced wholesale. `CLAUDE.md` and the meta pages are owner-edited, so merge by hand.
-
-## Attribution
-
-Kit by Honzik. The method is adapted from Andrej Karpathy's description of LLM-maintained knowledge bases. Obsidian is by Dynalist Inc. Claude is by Anthropic. Keep the footer line in `CLAUDE.md` when you pass a vault on so the next person knows where it came from.
+Your vault records the kit version in the footer of `CLAUDE.md`. To update, read `CHANGELOG.md` from your version forward. Skills and `Wiki/CLAUDE.md` can be replaced wholesale. The root `CLAUDE.md` and the meta pages are yours, so merge by hand. Keep the footer line when you pass a vault on, so the next person knows where it came from.
 
 ## References
 
