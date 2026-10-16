@@ -1,0 +1,104 @@
+<title>LLM Wiki Kit Quick Start</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: a single reading column, like a printed setup card. Steps as a numbered ledger with a checkpoint under each. */
+:root{
+  --bg:#f7f6f2; --fg:#1f2421; --muted:#5d655f; --line:#d9d6cc; --panel:#eeece4; --accent:#2f6b4f; --accent-ink:#ffffff;
+  --display:"Newsreader",Georgia,"Times New Roman",serif; --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171a18;--fg:#e8e6df;--muted:#a3aba5;--line:#343a36;--panel:#202522;--accent:#7cc39e;--accent-ink:#0f1a14;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#171a18;--fg:#e8e6df;--muted:#a3aba5;--line:#343a36;--panel:#202522;--accent:#7cc39e;--accent-ink:#0f1a14;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+main{max-width:720px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:2.4rem;font-weight:600}
+h2{font-size:1.5rem;font-weight:600;margin-top:2.6rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+h3{font-size:1.15rem;font-weight:600}
+p{margin:.7rem 0;max-width:65ch}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.6rem}
+.lede{font-size:1.1rem;color:var(--muted);max-width:60ch}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.95rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .6rem;border-bottom:1px solid var(--line)}
+th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.scroll{overflow-x:auto}
+code,kbd{font-family:var(--mono);font-size:.88em;background:var(--panel);padding:.1em .35em;border-radius:3px}
+pre{font-family:var(--mono);font-size:.88rem;background:var(--panel);padding:.8rem 1rem;border-radius:4px;overflow-x:auto;margin:.6rem 0}
+pre code{background:none;padding:0}
+ol.steps{list-style:none;padding:0;margin:1.2rem 0;display:grid;gap:1.2rem}
+ol.steps li{display:grid;grid-template-columns:2.6rem 1fr;gap:.8rem;min-width:0}
+.num{font-family:var(--display);font-size:1.6rem;font-weight:600;color:var(--accent);line-height:1.1;font-variant-numeric:tabular-nums}
+.step p{margin:.35rem 0}
+.check{margin-top:.5rem;padding:.5rem .75rem;border-left:3px solid var(--accent);background:var(--panel);font-size:.92rem}
+.check b{color:var(--accent)}
+.rules{display:grid;gap:.6rem;padding:0;margin:1rem 0;list-style:none}
+.rules li{padding:.6rem .8rem;background:var(--panel);border-radius:4px}
+.time{display:inline-block;font-size:.8rem;color:var(--muted);margin-left:.4rem}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:480px){h1{font-size:1.9rem}ol.steps li{grid-template-columns:2rem 1fr}}
+@media (prefers-reduced-motion:no-preference){.check{transition:background .2s}}
+</style>
+<main>
+<p class="eyebrow">LLM Wiki Kit, version 0.2.0</p>
+<h1>Set up your AI-maintained wiki</h1>
+<p class="lede">A knowledge base that Claude writes and you read in Obsidian. About 45 minutes of installing, then 30 minutes of talking to it. You will not write code.</p>
+
+<h2>What you need</h2>
+<div class="scroll"><table>
+<thead><tr><th>Install</th><th>What it is for</th><th>Cost</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td><b>Obsidian</b></td><td>The reader. Shows a folder of text files as a linked notebook</td><td>Free</td><td><a href="https://obsidian.md">obsidian.md</a></td></tr>
+<tr><td><b>Obsidian Web Clipper</b></td><td>Browser extension. One click saves an article into your inbox</td><td>Free</td><td><a href="https://obsidian.md/clipper">obsidian.md/clipper</a></td></tr>
+<tr><td><b>Git</b></td><td>Keeps a history of every change Claude makes, so anything can be undone</td><td>Free</td><td>Mac: step 3. Windows: <a href="https://git-scm.com/download/win">git-scm.com</a></td></tr>
+<tr><td><b>VS Code</b></td><td>The editor Claude runs inside</td><td>Free</td><td><a href="https://code.visualstudio.com">code.visualstudio.com</a></td></tr>
+<tr><td><b>Claude Code extension</b></td><td>Claude, with access to your vault folder and nothing else</td><td>Paid Claude plan (Pro is enough)</td><td>From inside VS Code, step 5</td></tr>
+<tr><td><b>GitHub Desktop</b> (optional)</td><td>Only if you received the kit as a GitHub link. Downloads it and pulls updates later</td><td>Free</td><td><a href="https://desktop.github.com">desktop.github.com</a></td></tr>
+<tr><td><b>Python 3</b></td><td>Runs the monthly health-check script</td><td>Free</td><td>Mac: already installed. Windows: <a href="https://python.org">python.org</a></td></tr>
+</tbody></table></div>
+<p>Works on macOS 13 or later and Windows 10 (1809) or later.</p>
+
+<h2>Seven steps</h2>
+<ol class="steps">
+<li><div class="num">1</div><div class="step"><h3>Get the kit <span class="time">2 min</span></h3><p>Unzip the file you were sent. Or in GitHub Desktop choose File, Clone repository, and paste the link.</p><div class="check"><b>Check:</b> you can see folders named <code>template</code>, <code>prompts</code> and <code>docs</code>.</div></div></li>
+<li><div class="num">2</div><div class="step"><h3>Install Obsidian and create a vault <span class="time">5 min</span></h3><p>Open Obsidian, choose <b>Create new vault</b>, name it, put it in Documents, click Create. Then quit Obsidian.</p><div class="check"><b>Check:</b> an empty folder with your vault's name exists in Documents.</div></div></li>
+<li><div class="num">3</div><div class="step"><h3>Install Git <span class="time">5 min</span></h3><p>Mac: open Terminal (search for it with Spotlight), type <code>git --version</code>, press Return, and accept the offer to install developer tools. Windows: run the Git installer with the defaults.</p><div class="check"><b>Check:</b> <code>git --version</code> prints a version number.</div></div></li>
+<li><div class="num">4</div><div class="step"><h3>Copy the template into your vault <span class="time">3 min</span></h3><p>Show hidden files first. Mac: press <kbd>Cmd</kbd> <kbd>Shift</kbd> <kbd>.</kbd> in Finder. Windows: View, Show, Hidden items. Open the kit's <code>template</code> folder, select everything inside it including the hidden <code>.claude</code> folder, copy, and paste into your vault folder.</p><div class="check"><b>Check:</b> open Obsidian. You see Inbox, Archive, Private, Profile and Wiki. The <code>.claude</code> folder is hidden there, which is correct.</div></div></li>
+<li><div class="num">5</div><div class="step"><h3>Install VS Code and Claude Code <span class="time">10 min</span></h3><p>Install VS Code. Open it, choose File, Open Folder, pick your vault, and say yes to trusting the folder. Press <kbd>Cmd</kbd> <kbd>Shift</kbd> <kbd>X</kbd> (Mac) or <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>X</kbd> (Windows), search <b>Claude Code</b>, click Install. Open the Claude panel from the left bar, click Sign in, and finish in the browser.</p><div class="check"><b>Check:</b> type <code>/skills</code> in the Claude panel. You see wiki-ingest, wiki-synthesise, wiki-lint, wiki-query and wr-unslop. If not, the hidden folder in step 4 did not copy.</div></div></li>
+<li><div class="num">6</div><div class="step"><h3>Install the Web Clipper <span class="time">3 min</span></h3><p>Add the extension to your browser. In its settings choose your vault and set the note location to <code>Inbox/Clippings</code>. Clip any article as a test.</p><div class="check"><b>Check:</b> the clipped page appears in <code>Inbox/Clippings</code> in Obsidian within a few seconds.</div></div></li>
+<li><div class="num">7</div><div class="step"><h3>Run the first two prompts <span class="time">20 min</span></h3><p>Open <code>prompts/P0 - Bootstrap.md</code> from the kit, copy the block under "Paste this", and paste it into the Claude panel. It checks the setup, asks your name and makes the first commit. Then do the same with <code>P1 - Setup Interview.md</code> and answer its questions. It writes your profile and names your first topic areas.</p><div class="check"><b>Check:</b> <code>Profile/About Me.md</code> is filled in and the health check reported zero errors.</div></div></li>
+</ol>
+<p>You are set up. Put three things in <code>Inbox</code> (a clipped article, your notes on a book, a transcript) and paste <code>P2 - First Ingest.md</code>. Read what Claude wrote with the source open beside it.</p>
+
+<h2>From then on</h2>
+<div class="scroll"><table>
+<thead><tr><th>When</th><th>Do</th></tr></thead>
+<tbody>
+<tr><td>Any time</td><td>Clip an article, or drop a file or a note into <code>Inbox</code></td></tr>
+<tr><td>Weekly, 20 minutes</td><td>Paste <code>P6 - Weekly Routine.md</code>. Claude processes the inbox, says what is ready to write up, and suggests one question</td></tr>
+<tr><td>When you have a question</td><td>Paste <code>P5 - Ask the Wiki.md</code> with your question. Keep the good answers as pages</td></tr>
+<tr><td>Monthly</td><td>Paste <code>P4 - Health Check.md</code>. Pick two or three fixes from the report</td></tr>
+</tbody></table></div>
+
+<h2>Three rules</h2>
+<ul class="rules">
+<li><b>Sources go in the inbox, nowhere else.</b> Dropping a file straight into Wiki skips the step that makes it findable.</li>
+<li><b>Anything you do not want Claude to read goes in Private.</b> To have something from there analysed, copy it to the inbox first and move the original back after.</li>
+<li><b>Read what Claude writes for the first few weeks.</b> It is good and it is not perfect. Your corrections teach it, and you learn what to trust.</li>
+</ul>
+
+<h2>If something goes wrong</h2>
+<div class="scroll"><table>
+<thead><tr><th>Symptom</th><th>Fix</th></tr></thead>
+<tbody>
+<tr><td>Claude says it cannot find the skills</td><td>The hidden <code>.claude</code> folder did not copy. Show hidden files, copy it, start a new session</td></tr>
+<tr><td>Clipped pages land in the wrong folder</td><td>Clipper settings: note location <code>Inbox/Clippings</code></td></tr>
+<tr><td>A link in Obsidian goes nowhere</td><td>Paste the health check prompt. Broken links are its first finding</td></tr>
+<tr><td>Claude asks permission for a command</td><td>Normal for anything outside the pre-approved list. Say yes to what you understand</td></tr>
+<tr><td>Things get slow or confused</td><td>Start a new chat. The index and log are the memory, not the conversation</td></tr>
+</tbody></table></div>
+<p>The full list is in <code>docs/03 - Troubleshooting.md</code>. When asking for help, paste the last entry from <code>Wiki/_Meta/_log.md</code>.</p>
+
+<footer>LLM Wiki Kit v0.2.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Longer versions of every step: <code>docs/01 - Install.md</code>.</footer>
+</main>
