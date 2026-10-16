@@ -13,7 +13,7 @@ You are setting up my knowledge vault from the LLM Wiki Kit. Do these in order a
 
 1. Read CLAUDE.md, Wiki/CLAUDE.md and Wiki/_Meta/How This Wiki Works.md so you know the rules.
 
-2. Check the structure. These must exist: Inbox/, Inbox/Clippings/, Archive/, Private/, Profile/About Me.md, Wiki/_Meta/_index.md, Wiki/_Meta/_log.md, Wiki/1. Sources/ (Books, Articles, Videos), Wiki/2. Knowledge/, Wiki/3. Living/, .claude/skills/ with wiki-ingest, wiki-synthesise, wiki-lint and wiki-query. List anything missing and stop if CLAUDE.md or the skills are missing.
+2. Check the structure. These must exist: Inbox/, Inbox/Clippings/, Archive/, Private/, Profile/About Me.md, Wiki/_Meta/_index.md, Wiki/_Meta/_log.md, Wiki/1. Sources/ (Books, Articles, Videos), Wiki/2. Knowledge/, Wiki/3. Living/, .claude/skills/ with wiki-ingest, wiki-synthesise, wiki-lint, wiki-query and wr-unslop. List anything missing and stop if CLAUDE.md or the skills are missing.
 
 3. Ask me one question: what name should the vault use for me? Then replace every {{OWNER}} in CLAUDE.md and in the skills with that name, and every {{DATE}} in Profile/About Me.md and Wiki/_Meta/How This Wiki Works.md with today's date.
 

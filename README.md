@@ -8,9 +8,9 @@ Put together by Honzik, adapted from Andrej Karpathy's LLM wiki idea and from ru
 
 | Path | What it is | Who uses it |
 |---|---|---|
-| `template/` | A complete, empty vault: folders, `CLAUDE.md`, the wiki rules, four skills, the meta pages | Copied once into a new Obsidian vault |
+| `template/` | A complete, empty vault: folders, `CLAUDE.md`, the wiki rules, four wiki skills plus `wr-unslop` for de-AI editing, the meta pages | Copied once into a new Obsidian vault |
 | `prompts/` | Seven numbered prompts, pasted into Claude in order | The owner, on day one and then weekly |
-| `docs/` | Start here, two install guides, the weekly routine, troubleshooting | The owner |
+| `docs/` | Start here, the install guide, the weekly routine, troubleshooting | The owner |
 | `DESIGN.md` | Why the kit is shaped this way, what is adapted and what is original | Whoever maintains the kit |
 | `VERSION`, `CHANGELOG.md` | Which cut a vault was built from, and what changed since | Both |
 
@@ -18,15 +18,21 @@ Put together by Honzik, adapted from Andrej Karpathy's LLM wiki idea and from ru
 
 1. Read `docs/00 - Start Here.md` (five minutes).
 
-2. Install Obsidian and one Claude path: `docs/01 - Install (Claude Desktop Cowork).md` or `docs/02 - Install (Claude Code in VS Code).md`.
+2. Install Obsidian, VS Code and Claude Code: `docs/01 - Install.md`.
 
 3. Create an empty Obsidian vault and copy everything inside `template/` into it, including the hidden `.claude/` folder.
 
-4. Open Claude on that folder and paste `prompts/P0 - Bootstrap.md`. Then `P1 - Setup Interview.md`.
+4. Open the vault in VS Code, open the Claude Code panel and paste `prompts/P0 - Bootstrap.md`. Then `P1 - Setup Interview.md`.
 
 5. Drop three things into `Inbox/` and paste `P2 - First Ingest.md`.
 
-From there the loop is: clip or drop sources into `Inbox/`, run the ingest, read what came out, ask questions, run the health check now and then. `docs/03 - The Weekly Routine.md` holds the 20 minute version.
+From there the loop is: clip or drop sources into `Inbox/`, run the ingest, read what came out, ask questions, run the health check now and then. `docs/02 - The Weekly Routine.md` holds the 20 minute version.
+
+## Goes well with
+
+- [Learning Skills](https://github.com/J-Jurza/learning-skills): four skills that teach you a topic instead of answering for you. When they run inside a vault built from this kit, `explain` saves its explanations as Knowledge pages and `reading-pack` writes one page per concept, so what you learn lands in the wiki.
+
+- `wr-unslop`, included in the template: the de-AI editing pass from [theclaymethod/unslop](https://github.com/theclaymethod/unslop) (MIT), for anything the agent drafts that other people will read.
 
 ## The idea in one paragraph
 
@@ -54,16 +60,14 @@ Kit by Honzik. The method is adapted from Andrej Karpathy's description of LLM-m
 
 - Anthropic, *Claude Code: best practices for agentic coding*. https://www.anthropic.com/engineering/claude-code-best-practices
 
-- Anthropic, *Skills*: the `SKILL.md` format, where skills load from on each surface, and the six frontmatter fields that are safe across Claude Code, Cowork and claude.ai (the kit's skills use only `name` and `description`). https://code.claude.com/docs/en/skills.md and the open format at https://agentskills.io
+- Anthropic, *Skills*: the `SKILL.md` format, where skills load from on each surface, and the six frontmatter fields that are safe across Claude Code, Claude Desktop and claude.ai (the kit's skills use only `name` and `description`). https://code.claude.com/docs/en/skills.md and the open format at https://agentskills.io
 
 - Anthropic, *Permissions*: `Read(...)` deny rules replace `.claudeignore`, which has no effect. The template's `.claude/settings.json` follows this page. https://code.claude.com/docs/en/permissions.md
 
 - Anthropic, *Set up Claude Code* and *VS Code*: https://code.claude.com/docs/en/setup.md and https://code.claude.com/docs/en/vs-code.md
 
-- Anthropic, *Cowork*: overview, projects and folders, getting started. https://claude.com/docs/cowork/overview, https://claude.com/docs/cowork/guide/projects, https://support.claude.com/en/articles/13345190-getting-started-with-cowork
-
 **Lint and maintenance**
 
 - Karpathy's lint list in the gist: contradictions, stale claims, orphans, concepts without a page, missing cross-references, data gaps a search could fill, suggested questions. The `wiki-lint` skill covers each. The script half (broken links, orphans, index drift, stubs) and its five link-resolution rules come from running the same check on a 600-page vault for four months.
 
-- Obsidian: Web Clipper https://obsidian.md/clipper, graph view for hubs and orphans, Dataview for tables over frontmatter, the attachments folder and the "Download attachments for current file" command for local images. All mentioned in the gist's tips and in `docs/03 - The Weekly Routine.md`.
+- Obsidian: Web Clipper https://obsidian.md/clipper, graph view for hubs and orphans, Dataview for tables over frontmatter, the attachments folder and the "Download attachments for current file" command for local images. All mentioned in the gist's tips and in `docs/02 - The Weekly Routine.md`.

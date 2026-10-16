@@ -44,4 +44,4 @@ The inbox has thirty items in it. A Knowledge page reads like three summaries st
 
 - **Dataview** community plugin, later: tables over page frontmatter (every Living page with Updated older than three months, every source by type). Optional. The index does the same job by hand until the wiki is large.
 
-- **Git**, Path B: every change the agent makes is a commit. "What did it change last Tuesday" has an answer.
+- **Git**: every change the agent makes is a commit. "What did it change last Tuesday" has an answer.

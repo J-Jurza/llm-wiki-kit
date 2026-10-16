@@ -30,7 +30,7 @@ Say "adapted from Karpathy's LLM wiki idea" and leave it there. The claim that m
 
 - **Private and Profile folders.** Not in the gist. They came from running a vault that holds health and money matters next to book notes.
 
-- **Two tool paths.** The gist assumes an agent with file access. The kit documents Cowork (no skills in the folder, code may run remotely) and Claude Code (everything local) separately, because the install and the privacy guarantees differ.
+- **One tool path for now.** The kit documents Claude Code in VS Code only. Claude Desktop's Cowork mode was investigated for 0.1.0: it does not load skills from the vault folder, may run code away from the machine, and its reading of `CLAUDE.md` is undocumented. It returns when those are settled.
 
 ## The two source vaults
 
@@ -55,7 +55,7 @@ For a general second brain the personal vault's layers fit better: most of what 
 
 - **Skills over long prompts.** The prompts are short because the procedure lives in the skill. A prompt says what to do once. A skill says how, every time.
 
-- **Both tool paths, same files.** `CLAUDE.md`, `Wiki/CLAUDE.md` and `.claude/skills/` are read by both Claude Desktop Cowork and Claude Code. The install guides differ, the vault does not.
+- **One vendored editor.** `wr-unslop` ships in the template because the agent will draft things people read, and a de-AI pass belongs next to the writing. It is a third-party skill (MIT) carried with its NOTICE.
 
 - **No `Private/` content ever enters a wiki page.** Summaries of health or money matters can live in Living when the owner puts the source in Inbox first. Identifiers and file paths from `Private/` never do.
 
