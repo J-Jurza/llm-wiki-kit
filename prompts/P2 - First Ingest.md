@@ -25,4 +25,4 @@ Read every page it wrote, with the source open next to it. The checks that matte
 Tell the agent what to fix in plain words. It will fix the page and the log. Once you trust the ingest, the weekly version is just "process my inbox".
 
 ---
-*LLM Wiki Kit v0.1.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Prompts are tool-agnostic: paste into Claude Desktop Cowork or Claude Code.*
+*LLM Wiki Kit v0.2.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Paste each prompt into the Claude Code panel.*

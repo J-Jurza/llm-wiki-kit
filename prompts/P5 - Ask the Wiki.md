@@ -25,4 +25,4 @@ Example questions that work well once the wiki has twenty or so pages:
 File the good answers. An answer that joined three pages is a fourth page waiting to exist. Over months this is what turns a folder of summaries into a wiki.
 
 ---
-*LLM Wiki Kit v0.1.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Prompts are tool-agnostic: paste into Claude Desktop Cowork or Claude Code.*
+*LLM Wiki Kit v0.2.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Paste each prompt into the Claude Code panel.*

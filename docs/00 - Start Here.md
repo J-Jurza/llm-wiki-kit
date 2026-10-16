@@ -22,26 +22,19 @@ You never have to write a wiki page yourself. You read, you ask, you decide what
 
 - A paid Claude plan (Pro is enough). Claude is the writer.
 
-- One of two ways to run Claude on your folder. Pick one:
-
-| Path | What it is | Pick it if |
-|---|---|---|
-| **A. Claude Desktop, Cowork** | The Claude app with a folder attached. Chat window, no terminal | You do not want to see a command line. You accept that skills are uploaded through the app rather than living in the folder |
-| **B. Claude Code in VS Code** | A code editor with Claude in a side panel, plus a terminal | You are comfortable installing a few tools. You want the health-check script to run locally and the skills to travel with the vault |
-
-Both paths read the same vault, the same `CLAUDE.md` rules and the same prompts. You can switch later.
+- **VS Code** with the **Claude Code** extension, free. A code editor with Claude in a side panel and a terminal. You will not write code. It is the way to run Claude on a folder so the skills travel with the vault, the health-check script runs locally and git keeps a history.
 
 ## The steps
 
 | Step | What | Doc or prompt | Time |
 |---|---|---|---|
-| 1 | Install Obsidian, Claude and the Web Clipper | `01 - Install (Claude Desktop Cowork).md` or `02 - Install (Claude Code in VS Code).md` | 30 to 45 min |
+| 1 | Install Obsidian, VS Code, Claude Code and the Web Clipper | `01 - Install.md` | 45 min |
 | 2 | Create an empty vault and copy the template in | Same install doc, last section | 5 min |
 | 3 | Bootstrap: check, name, first commit | `prompts/P0 - Bootstrap.md` | 2 min |
 | 4 | Setup interview: who you are, what the wiki serves | `prompts/P1 - Setup Interview.md` | 15 min |
 | 5 | Put three to five things in `Inbox/`, run the first ingest, read what came out | `prompts/P2 - First Ingest.md` | 20 min |
 | 6 | After about ten sources: first synthesis | `prompts/P3 - First Synthesis.md` | 10 min |
-| 7 | Every week from then on | `prompts/P6 - Weekly Routine.md` and `03 - The Weekly Routine.md` | 20 min a week |
+| 7 | Every week from then on | `prompts/P6 - Weekly Routine.md` and `02 - The Weekly Routine.md` | 20 min a week |
 
 `P4 - Health Check` and `P5 - Ask the Wiki` are for whenever you need them.
 
@@ -55,4 +48,4 @@ Both paths read the same vault, the same `CLAUDE.md` rules and the same prompts.
 
 ## When something goes wrong
 
-`04 - Troubleshooting.md`. The three most common: the hidden `.claude/` folder did not copy, the Web Clipper is saving to the wrong folder, and a link in Obsidian goes nowhere (run the health check).
+`03 - Troubleshooting.md`. The three most common: the hidden `.claude/` folder did not copy, the Web Clipper is saving to the wrong folder, and a link in Obsidian goes nowhere (run the health check).

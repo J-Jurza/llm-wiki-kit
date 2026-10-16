@@ -23,7 +23,7 @@ python3 .claude/skills/wiki-lint/scripts/lint.py
 
 It prints broken links, orphans, index drift and stub candidates. Read its output and move to step 2.
 
-If no shell is available (Claude Desktop Cowork may run code away from this folder, or the script may be missing), do the same four passes by reading:
+If no shell is available, or the script is missing, do the same four passes by reading:
 
 1. **Broken links.** Collect every `[[link]]` in `Wiki/` (ignore links inside code spans and code fences). A link resolves if a file with that basename exists anywhere under `Wiki/`, or the path-qualified file exists. List each miss with the file it sits in and the likely intended target.
 

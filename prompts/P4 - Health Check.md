@@ -17,4 +17,4 @@ Then pick: "Fix 1, 2 and 5. Leave the rest." The agent fixes those, logs what it
 Errors should be rare and mechanical: a broken link from a renamed page, a page missing from the index. Warnings are where the value is: an orphan nobody will ever find, two pages on one idea, a plan that has gone stale. Suggestions are the wiki telling you what it wants to become: "these four sources are ready for a Knowledge page" is the best finding a lint can make.
 
 ---
-*LLM Wiki Kit v0.1.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Prompts are tool-agnostic: paste into Claude Desktop Cowork or Claude Code.*
+*LLM Wiki Kit v0.2.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Paste each prompt into the Claude Code panel.*

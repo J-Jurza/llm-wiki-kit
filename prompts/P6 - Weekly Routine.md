@@ -27,4 +27,4 @@ Also run the wiki-lint skill and give me the numbered findings.
 ```
 
 ---
-*LLM Wiki Kit v0.1.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Prompts are tool-agnostic: paste into Claude Desktop Cowork or Claude Code.*
+*LLM Wiki Kit v0.2.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Paste each prompt into the Claude Code panel.*

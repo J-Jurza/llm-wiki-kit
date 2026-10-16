@@ -33,4 +33,4 @@ Finish with the five inbox suggestions and nothing else.
 An About Me page you would not be embarrassed to read back. Domain names you actually use for these things. If a proposed domain feels off, rename it now: renaming later means moving pages.
 
 ---
-*LLM Wiki Kit v0.1.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Prompts are tool-agnostic: paste into Claude Desktop Cowork or Claude Code.*
+*LLM Wiki Kit v0.2.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Paste each prompt into the Claude Code panel.*

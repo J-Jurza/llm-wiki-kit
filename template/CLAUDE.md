@@ -47,6 +47,7 @@ This is an Obsidian vault. {{OWNER}} collects sources and reads the wiki. You wr
 | Three or more sources cover a concept, or "synthesise", "write up what I know about" | `wiki-synthesise` |
 | "Check the wiki", monthly, or after a big ingest | `wiki-lint` (report only, fixes on confirmation) |
 | A question that spans pages, "what does my wiki say about" | `wiki-query` |
+| Anything written for other people, or "does this sound like AI" | `wr-unslop` (audit first, rewrite only when asked) |
 
 ## After any wiki work
 
@@ -65,4 +66,4 @@ Deleting anything outside `Inbox/`. Moving a page out of `Wiki/`. Editing `Profi
 No em-dashes. No filler. Concrete over abstract. Blank line between list items. Full guide and page format: `Wiki/CLAUDE.md`.
 
 ---
-*Built from LLM Wiki Kit v0.1.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea.*
+*Built from LLM Wiki Kit v0.2.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea.*

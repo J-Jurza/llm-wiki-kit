@@ -17,4 +17,4 @@ When the page is written, show me: the sources it drew on, one place where the s
 A page you could hand to a friend as "here is what I have learned about X", with wikilinks they could follow to the evidence. If the page reads like three book summaries stapled together, say so: "organise this by idea, not by source" is the fix.
 
 ---
-*LLM Wiki Kit v0.1.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Prompts are tool-agnostic: paste into Claude Desktop Cowork or Claude Code.*
+*LLM Wiki Kit v0.2.0 by Honzik, adapted from Andrej Karpathy's LLM wiki idea. Paste each prompt into the Claude Code panel.*

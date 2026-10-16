@@ -1,6 +1,6 @@
 # How This Wiki Works
 
-*Type: Method | Created: {{DATE}} | Kit: LLM Wiki Kit v0.1.0*
+*Type: Method | Created: {{DATE}} | Kit: LLM Wiki Kit v0.2.0*
 
 This vault is a knowledge base that an LLM writes and you read. You collect sources. The agent compiles them into linked pages, keeps the index, checks its own work and answers your questions from what it has compiled. The method is adapted from Andrej Karpathy's description of LLM-maintained knowledge bases, with the folder scheme, rules and skills put together by Honzik.
 
