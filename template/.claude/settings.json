@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./Private/**)",
+      "Edit(./Private/**)",
+      "Read(./Archive/**)",
+      "Edit(./Profile/**)",
+      "Bash(git push *)",
+      "Bash(rm -rf *)"
+    ],
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(python3 .claude/skills/wiki-lint/scripts/lint.py)"
+    ]
+  }
+}

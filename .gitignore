@@ -1,0 +1,8 @@
+.DS_Store
+~$*
+# Obsidian workspace state inside the template must never ship
+template/.obsidian/workspace.json
+
+# Per-machine agent files written by the dev vault hub
+CLAUDE.local.md
+.claude/settings.local.json

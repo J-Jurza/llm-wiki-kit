@@ -1,0 +1,19 @@
+# Raw sensitive files: never enter git history
+Private/
+
+# Processed originals and large binaries: kept on disk, not versioned
+Archive/
+*.pdf
+*.epub
+*.zip
+*.7z
+*.mp4
+*.mp3
+
+# Obsidian per-machine state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# macOS and Office
+.DS_Store
+~$*
